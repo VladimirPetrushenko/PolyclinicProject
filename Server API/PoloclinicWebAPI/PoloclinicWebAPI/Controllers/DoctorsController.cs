@@ -40,7 +40,6 @@ namespace PoloclinicWebAPI.Controllers
             var doctorModels= _repository.GetAllDoctors();
             var doctorReadDto = _mapper.Map<IEnumerable<DoctorReadDto>>(doctorModels);
 
-
             return Ok(doctorReadDto);
         }
 
