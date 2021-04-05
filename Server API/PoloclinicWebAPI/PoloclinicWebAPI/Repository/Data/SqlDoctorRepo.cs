@@ -14,7 +14,7 @@ namespace PoloclinicWebAPI.Repository.Data
 
         public SqlDoctorRepo(PoliclinicContext context)
         {
-            _context = context;
+            _context = new PoliclinicContext();
         }
 
         public void CreateDoctor(Doctor doctor)

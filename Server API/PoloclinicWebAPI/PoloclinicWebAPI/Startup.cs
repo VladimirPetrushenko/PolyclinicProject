@@ -51,6 +51,8 @@ namespace PoloclinicWebAPI
             services.AddScoped<IQualificationRepo, SqlQualificationRepo>();
             services.AddScoped<ISpecializationRepo, SqlSpecializationRepo>();
 
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PoloclinicWebAPI", Version = "v1" });
@@ -66,6 +68,8 @@ namespace PoloclinicWebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PoloclinicWebAPI v1"));
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin());
 
             app.UseHttpsRedirection();
 

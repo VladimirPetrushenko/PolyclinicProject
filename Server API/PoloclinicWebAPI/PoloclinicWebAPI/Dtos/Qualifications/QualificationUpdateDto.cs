@@ -10,6 +10,6 @@ namespace PoloclinicWebAPI.Dtos.Qualifications
     {
         [Required]
         [StringLength(20)]
-        public string Qualification1 { get; set; }
+        public string Name { get; set; }
     }
 }

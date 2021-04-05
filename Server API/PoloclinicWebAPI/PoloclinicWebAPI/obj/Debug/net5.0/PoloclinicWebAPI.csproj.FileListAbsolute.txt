@@ -8,7 +8,10 @@ D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicW
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\ref\PoloclinicWebAPI.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\PoloclinicWebAPI.pdb
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\AutoMapper.dll
+D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Humanizer.dll
+D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -24,6 +27,7 @@ D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicW
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -44,7 +48,6 @@ D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicW
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.csprojAssemblyReference.cache
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.GeneratedMSBuildEditorConfig.editorconfig
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.AssemblyInfoInputs.cache
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.AssemblyInfo.cs
@@ -60,7 +63,4 @@ D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicW
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\ref\PoloclinicWebAPI.dll
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.pdb
 D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.genruntimeconfig.cache
-D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
-D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\RepositoryForGithub\PolyclinicProject\Server API\PoloclinicWebAPI\PoloclinicWebAPI\obj\Debug\net5.0\PoloclinicWebAPI.csprojAssemblyReference.cache

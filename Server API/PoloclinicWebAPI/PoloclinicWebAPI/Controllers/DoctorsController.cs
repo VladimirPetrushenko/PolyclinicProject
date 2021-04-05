@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using PoloclinicWebAPI.Models.DBContext;
 
 namespace PoloclinicWebAPI.Controllers
 {
@@ -18,29 +20,40 @@ namespace PoloclinicWebAPI.Controllers
     {
         private readonly IDoctorRepo _repository;
         private readonly IMapper _mapper;
+        private readonly ISpecializationRepo _specialization;
+        private readonly IQualificationRepo _qualification;
+        private readonly PoliclinicContext _context;
 
-        public DoctorsController(IDoctorRepo repository, IMapper mapper)
+        public DoctorsController(IDoctorRepo repository, IMapper mapper, ISpecializationRepo specialization, IQualificationRepo qualification, PoliclinicContext context)
         {
             _repository = repository;
             _mapper = mapper;
+            _specialization = specialization;
+            _qualification = qualification;
+            _context = context;
         }
 
         //GET api/doctors/
         [HttpGet]
-        public ActionResult<IEnumerable<DoctorReadDto>> GetAllDoctors()
+        public ActionResult GetAllDoctors()
         {
             var doctorModels= _repository.GetAllDoctors();
-            return Ok(_mapper.Map <IEnumerable<DoctorReadDto>>(doctorModels));
+            var doctorReadDto = _mapper.Map<IEnumerable<DoctorReadDto>>(doctorModels);
+
+
+            return Ok(doctorReadDto);
         }
 
         //GET api/doctors/{id}
         [HttpGet("{id}", Name = "GetDoctorById")]
-        public ActionResult <DoctorReadDto> GetDoctorById(int id)
+        public ActionResult GetDoctorById(int id)
         {
             var doctorModel = _repository.GetDoctorById(id);
             if (doctorModel != null)
             {
-                return Ok(_mapper.Map<DoctorReadDto>(doctorModel));
+                var doctorReadDto = _mapper.Map<DoctorReadDto>(doctorModel);
+                var doctor = new DoctorRead().GetDoctor(doctorReadDto, _context);
+                return Ok(doctor);
             }
             return NotFound();
         }

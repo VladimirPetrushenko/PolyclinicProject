@@ -24,19 +24,28 @@ namespace PoloclinicWebAPI.Models.DBContext
         public virtual DbSet<Qualification> Qualifications { get; set; }
         public virtual DbSet<Specialization> Specializations { get; set; }
 
-        // приконекчиваюсь к базе данных через сервисы в Startup.cs
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Policlinic;Trusted_Connection=True;");
-//            }
-//        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Policlinic;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Qualification>(entity =>
+            {
+                entity.ToTable("Qualification");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(20)
+                    .IsFixedLength(true);
+            });
 
             modelBuilder.Entity<Diagnosis>(entity =>
             {
@@ -69,8 +78,6 @@ namespace PoloclinicWebAPI.Models.DBContext
                     .IsRequired()
                     .HasMaxLength(20);
 
-                entity.Property(e => e.IdQualification).HasColumnName("idQualification");
-
                 entity.Property(e => e.IdSpecialization).HasColumnName("idSpecialization");
 
                 entity.Property(e => e.LastName)
@@ -79,15 +86,15 @@ namespace PoloclinicWebAPI.Models.DBContext
 
                 entity.Property(e => e.Phone).HasMaxLength(20);
 
-                entity.HasOne(d => d.IdQualificationNavigation)
-                    .WithMany(p => p.Doctors)
-                    .HasForeignKey(d => d.IdQualification)
-                    .HasConstraintName("FK__Doctor__idQualif__398D8EEE");
-
                 entity.HasOne(d => d.IdSpecializationNavigation)
                     .WithMany(p => p.Doctors)
                     .HasForeignKey(d => d.IdSpecialization)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Doctor__idSpecia__3A81B327");
+
+                entity.HasOne(d => d.Qualification)
+                    .WithMany(p => p.Doctors)
+                    .HasForeignKey(d => d.QualificationId);
             });
 
             modelBuilder.Entity<MedicalCard>(entity =>
@@ -153,17 +160,6 @@ namespace PoloclinicWebAPI.Models.DBContext
                 entity.Property(e => e.Phone)
                     .HasMaxLength(30)
                     .HasDefaultValueSql("('unknown')");
-            });
-
-            modelBuilder.Entity<Qualification>(entity =>
-            {
-                entity.ToTable("Qualification");
-
-                entity.Property(e => e.Qualification1)
-                    .IsRequired()
-                    .HasMaxLength(20)
-                    .HasColumnName("Qualification")
-                    .IsFixedLength(true);
             });
 
             modelBuilder.Entity<Specialization>(entity =>
