@@ -20,7 +20,7 @@ namespace PoloclinicWebAPI.Dtos.Doctors
         public string Address { get; set; }
         [StringLength(20)]
         public string Phone { get; set; }
-        public int? IdQualification { get; set; }
-        public int? IdSpecialization { get; set; }
+        public int QualificationId { get; set; }
+        public int SpecializationId { get; set; }
     }
 }

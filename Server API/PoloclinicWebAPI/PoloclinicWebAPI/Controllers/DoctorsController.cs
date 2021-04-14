@@ -51,8 +51,7 @@ namespace PoloclinicWebAPI.Controllers
             if (doctorModel != null)
             {
                 var doctorReadDto = _mapper.Map<DoctorReadDto>(doctorModel);
-                var doctor = new DoctorRead().GetDoctor(doctorReadDto, _context);
-                return Ok(doctor);
+                return Ok(doctorReadDto);
             }
             return NotFound();
         }

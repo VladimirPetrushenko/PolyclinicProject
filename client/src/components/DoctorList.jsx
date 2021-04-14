@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
-import { getAllDoctors } from "../api";
+import { useContext } from "react";
 import { DoctorItem } from "./DoctorItem";
 import { Preloader } from "./Preloader";
-export const DoctorList = () => {
-    const [doctors, setDoctors] = useState({});
+import { MainContext } from "../context/MainContext";
 
-    useEffect(()=>{
-        getAllDoctors().then(data=>setDoctors(data));
-    },[])
+export const DoctorList = () => {
+    const {doctors} = useContext(MainContext)
+
     return <div className="doctor-list">
         {
         doctors.length ? doctors.map(doctor=>{

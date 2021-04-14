@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PoloclinicWebAPI.Dtos.Diagnoses;
+using PoloclinicWebAPI.Dtos.Doctors;
+using PoloclinicWebAPI.Dtos.Patients;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +18,9 @@ namespace PoloclinicWebAPI.Dtos.MedicalCards
         public string Conclusion { get; set; }
         public int? IdDiagnosis { get; set; }
         public string Recomendatein { get; set; }
+
+        public virtual DiagnosisReadDto IdDiagnosisNavigation { get; set; }
+        public virtual DoctorReadDto IdDoctorNavigation { get; set; }
+        public virtual PatientReadDto IdPatientNavigation { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -15,6 +16,15 @@ namespace PoloclinicWebAPI.Models.DBContext
         public PoliclinicContext(DbContextOptions<PoliclinicContext> options)
             : base(options)
         {
+            //создаёт базу данных если она отсутствует на компьютере
+        //    Database.EnsureCreated();
+
+            Diagnoses.ToList();
+            Doctors.ToList();
+            MedicalCards.ToList();
+            Patients.ToList();
+            Qualifications.ToList();
+            Specializations.ToList();
         }
 
         public virtual DbSet<Diagnosis> Diagnoses { get; set; }
@@ -78,7 +88,7 @@ namespace PoloclinicWebAPI.Models.DBContext
                     .IsRequired()
                     .HasMaxLength(20);
 
-                entity.Property(e => e.IdSpecialization).HasColumnName("idSpecialization");
+                entity.Property(e => e.SpecializationId).HasColumnName("SpecializationId");
 
                 entity.Property(e => e.LastName)
                     .IsRequired()
@@ -86,9 +96,9 @@ namespace PoloclinicWebAPI.Models.DBContext
 
                 entity.Property(e => e.Phone).HasMaxLength(20);
 
-                entity.HasOne(d => d.IdSpecializationNavigation)
+                entity.HasOne(d => d.Specialization)
                     .WithMany(p => p.Doctors)
-                    .HasForeignKey(d => d.IdSpecialization)
+                    .HasForeignKey(d => d.SpecializationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Doctor__idSpecia__3A81B327");
 

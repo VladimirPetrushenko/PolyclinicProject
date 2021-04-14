@@ -19,9 +19,9 @@ namespace PoloclinicWebAPI.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public int QualificationId { get; set; }
-        public int IdSpecialization { get; set; }
+        public int SpecializationId { get; set; }
 
-        public virtual Specialization IdSpecializationNavigation { get; set; }
+        public virtual Specialization Specialization { get; set; }
         public virtual Qualification Qualification { get; set; }
         public virtual ICollection<MedicalCard> MedicalCards { get; set; }
     }
