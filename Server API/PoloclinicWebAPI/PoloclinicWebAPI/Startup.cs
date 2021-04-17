@@ -32,9 +32,17 @@ namespace PoloclinicWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var server = Configuration["DBServer"] ?? "ms-sql-server";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "Pa55w0rd2021";
+            var database = Configuration["Database"] ?? "Policlinic";
+            
+            
             services.AddDbContext<PoliclinicContext>(opt =>
             {
-                opt.UseSqlServer(Configuration.GetConnectionString("PoliclinicConnection"));
+                //opt.UseSqlServer(Configuration.GetConnectionString("PoliclinicConnection"));
+                opt.UseSqlServer($"Server={server},{port};Initial Catalog={database};User Id ={user};Password={password}");
             });
 
             services.AddControllers().AddNewtonsoftJson(s =>
@@ -71,11 +79,14 @@ namespace PoloclinicWebAPI
 
             app.UseCors(builder => builder.AllowAnyOrigin());
 
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            InitDB.InitPoliclinic(app);
 
             app.UseEndpoints(endpoints =>
             {
