@@ -11,14 +11,17 @@ services:
             - "1433:1433"
 
     policlinic:
-        build: ./Server API/PoloclinicWebAPI/PoloclinicWebAPI
+        image: barrierofdust/policlinicserver
         restart: on-failure
+        container_name: "policlinic"
         environment: 
             DBServer: ms-sql-server
         ports: 
             - "8080:80" 
     
     client:
-        build: ./client
+        depends_on: 
+            - policlinic
+        build: barrierofdust/policlinicclient
         ports: 
             - "3000:3000"

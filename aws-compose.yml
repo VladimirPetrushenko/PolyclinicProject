@@ -1,0 +1,34 @@
+ms-sql-server:
+  image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu 
+  cpu_shares: 100
+  mem_limit: 262144000
+  environment: 
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pa55w0rd2021"
+      MSSQL_PID: "Express"
+  ports: 
+      - "1433:1433"
+
+policlinic:
+  image: barrierofdust/policlinicserver
+  restart: on-failure
+  container_name: "policlinic"
+  cpu_shares: 100
+  mem_limit: 262144000
+  environment: 
+      DBServer: ms-sql-server
+  ports: 
+      - "8080:80" 
+  links:
+    - ms-sql-server
+
+client:
+  depends_on: 
+      - policlinic
+  build: barrierofdust/policlinicclient
+  cpu_shares: 100
+  mem_limit: 262144000
+  ports: 
+      - "3000:3000"
+  links:
+    - policlinic
