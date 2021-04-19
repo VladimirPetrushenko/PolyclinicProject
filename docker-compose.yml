@@ -22,6 +22,6 @@ services:
     client:
         depends_on: 
             - policlinic
-        build: barrierofdust/policlinicclient
+        image: barrierofdust/policlinicclient
         ports: 
             - "3000:3000"

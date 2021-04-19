@@ -8,5 +8,7 @@ export const Home = () =>{
                 <p><Link className="card-action" to="/qualifications">Список всех квалификаций</Link></p>
                 <p><Link className="card-action" to="/specializations">Список всех специализаций</Link></p>
                 <p><Link className="card-action" to="/diagnosis">Список всех диагнозов</Link></p>
+                <br /><br /><br /><br /><br /><br />
+                <p><Link className="card-action" to="/doctor">Добавить доктора</Link></p>
             </div>
 }

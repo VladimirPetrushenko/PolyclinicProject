@@ -19,12 +19,7 @@ namespace PoloclinicWebAPI.Models.DBContext
             //создаёт базу данных если она отсутствует на компьютере
             Database.EnsureCreated();
 
-            Diagnoses.ToList();
-            Doctors.ToList();
-            MedicalCards.ToList();
-            Patients.ToList();
-            Qualifications.ToList();
-            Specializations.ToList();
+            InitDictionaries();
         }
 
         public virtual DbSet<Diagnosis> Diagnoses { get; set; }

@@ -32,7 +32,7 @@ namespace PoloclinicWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var server = Configuration["DBServer"] ?? "ms-sql-server";
+            var server = Configuration["DBServer"] ?? "localhost";
             var port = Configuration["DBPort"] ?? "1433";
             var user = Configuration["DBUser"] ?? "SA";
             var password = Configuration["DBPassword"] ?? "Pa55w0rd2021";
@@ -77,9 +77,6 @@ namespace PoloclinicWebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PoloclinicWebAPI v1"));
             }
 
-            app.UseCors(builder => builder.AllowAnyOrigin());
-
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -87,6 +84,10 @@ namespace PoloclinicWebAPI
             app.UseAuthorization();
 
             InitDB.InitPoliclinic(app);
+
+            app.UseCors(builder => {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            });
 
             app.UseEndpoints(endpoints =>
             {

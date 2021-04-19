@@ -8,6 +8,7 @@ import { MedicalCardList } from "./components/MedicalCardList";
 import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Doctor } from "./pages/Doctor";
+import { DoctorPost } from "./pages/DoctorPost";
 import { MedicalCard } from "./pages/MedicalCard";
 import {MainProvaider} from "./context/MainContext"
 
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/doctors" component={DoctorList} />
             <Route path="/doctor/:id" component={Doctor} />
+            <Route path="/doctor" component={DoctorPost} />
             <Route path="/patients" component={PatientList} />
             <Route path="/medicalcards" component={MedicalCardList} />
             <Route path="/medicalcard/:id" component={MedicalCard} />
